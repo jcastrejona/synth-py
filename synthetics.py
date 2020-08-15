@@ -23,11 +23,11 @@ class TestGeneral:
 
     self.driver = webdriver.Remote(command_executor="http://10.0.211.120:4444/wd/hub", desired_capabilities= DesiredCapabilities.CHROME)
     #self.driver = webdriver.Chrome(chrome_options=chrome_options)  
-    self.driver.get("https://coelens.digitalcoedevops.com/")
+    self.driver.get("http://13.72.75.125/")
     self.driver.maximize_window()
     self.driver.implicitly_wait(2)
     self.driver.find_element_by_name("User").click()
-    self.driver.find_element_by_name("User").send_keys("marcos.zaragoza")
+    self.driver.find_element_by_name("User").send_keys("alex.davila")
     self.driver.find_element_by_name("Password").click()
     self.driver.find_element_by_name("Password").send_keys("admin")
     self.driver.find_element_by_xpath('//*[@id="ctc"]/div[2]/form/div[4]/button').click()

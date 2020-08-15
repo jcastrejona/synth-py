@@ -5,8 +5,6 @@
 # https://docs.openshift.com/container-platform/3.11/creating_images/guidelines.html#openshift-specific-guidelines
 #==============================================
 
- 
-
 if ! whoami &> /dev/null; then
   if [ -w /etc/passwd ]; then
     echo "${USER_NAME:-default}:x:$(id -u):0:${USER_NAME:-default} user:${HOME}:/sbin/nologin" >> /etc/passwd
@@ -26,4 +24,3 @@ function shutdown {
 
 trap shutdown SIGTERM SIGINT
 wait ${SUPERVISOR_PID}
-cron start && tail -f /var/log/cron.log

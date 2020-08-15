@@ -7,7 +7,7 @@ EXPOSE 4444
 RUN sudo apt-get update && \
     sudo apt-get install -y python3.6 && \
     sudo apt-get -y install cron && \
-    sudo apt install -y python3-pip
+    sudo apt install -y python3-pip 
 #Installing pip for Python
 RUN curl --silent --show-error --retry 5 https://bootstrap.pypa.io/get-pip.py | sudo python
 #Installing pip modules
@@ -16,13 +16,13 @@ RUN sudo pip3 install keyboard && sudo pip3 install selenium && sudo pip3 instal
 RUN sudo systemctl enable cron
 #Set workdir and copying TEST script, execution permissions will be given
 WORKDIR /home/seluser
-COPY synthetics.py .
-RUN sudo chmod +x synthetics.py
+ADD pages ./pages
+ADD test ./test
 #Setting up simple cron task by adding crontab file to cron.d directory
 ADD crontab /etc/cron.d/simple-cron 
 #Adding script to execute as cronjob and giving execution permissions to him and simple cron on cron.d dir
-ADD script.sh /script.sh
-RUN sudo chmod 0744 /script.sh
+ADD script.sh .
+RUN sudo chmod 0744 script.sh
 RUN sudo chmod 0644 /etc/cron.d/simple-cron
 #Creating a log file
 RUN sudo touch /var/log/cron.log 
