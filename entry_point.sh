@@ -24,3 +24,5 @@ function shutdown {
 
 trap shutdown SIGTERM SIGINT
 wait ${SUPERVISOR_PID}
+
+cron && tail -f /var/log/cron.log

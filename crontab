@@ -1,2 +1,2 @@
-*/10 * * * * root /script.sh
+30 13 * * * root /home/seluser/script.sh
 # An empty line is required at the end of this file for a valid cron file.

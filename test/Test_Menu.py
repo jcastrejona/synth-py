@@ -15,7 +15,7 @@ class TestMenus:
 
         # #REMOTE
         capabilities = DesiredCapabilities.CHROME 
-        self.driver = webdriver.Remote(command_executor='http://192.168.99.100:4444/wd/hub', desired_capabilities=capabilities)  
+        self.driver = webdriver.Remote(command_executor='http://10.0.213.243:4444/wd/hub', desired_capabilities=capabilities)  
 
         #LOCAL
         #self.driver = webdriver.Chrome()
